@@ -1,0 +1,4 @@
+spond~=0.9.0
+beautifulsoup4~=4.11.1
+mechanize~=0.4.8
+python-dotenv~=0.21.0

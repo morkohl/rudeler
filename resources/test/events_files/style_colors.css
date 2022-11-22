@@ -1,0 +1,25 @@
+:root {
+  --asvz_gruen_normal: #5E832B; /* Links */
+  --asvz_gruen_normal_heller: #6B8D3C; /* Infobar */
+  --asvz_gruen_hell: #E2F0D0; /* Tab Title */
+  --asvz_gruen_hell_heller: #EEF9E3; /* Startseite rechts */
+  --asvz_gruen_dunkel: #344C12; /* Infobar Symbole */
+  --asvz_gruen_border: #D8E2CB; /* Ränder von Tabs */
+  --asvz_grau_normal: #6C757D; /* Navigation links, Buttons */
+  --asvz_grau_dunkel: #5A6268; /* Buttons hover */
+  --asvz_grau_hell: #F0F0F0; /* Semi-Buttons */
+  --asvz_grau_border: #CED4DA; /* Ränder von Inputs */
+  --asvz_hintergrund: #F8F8F8; /* Hintergrundfarbe */
+  --asvz_hintergrund_tab: white; /* Tab Hintergrundfarbe */
+  --asvz_hintergrund_input: white; /* Input Hintergrundfarbe */
+  --asvz_hintergrund_kommentarfeld: #F0F8E7; /* Kommentarfeld und andere herausgesetzte Inhalte mit sehr hellem Grün */
+  --asvz_hintergrund_nachricht_ungelesen: #F0F8E7; /* Hintergrund einer ungelesenen Nachricht */
+  --asvz_hintergrund_gelb: #FFF3CD; /* Hintergrund gelb */
+  --asvz_hintergrund_rot: #F8D7DA; /* Hintergrund rot */
+  --asvz_titlebar_icons: #5E832B; /* Icons in Titlebar (im leeren Zustand) */
+  --asvz_titlebar_icons_activated: #344C12; /* Icons in Titlebar (im vollen Zustand) */
+  --asvz_schrift: black; /* Schriftfarbe */
+  --asvz_schrift_input: black; /* Schriftfarbe Input-Felder*/
+  --asvz_schrift_headline: #333; /* Schriftfarbe Headlines (z.B. Werbe-News auf Startseite)*/   
+}
+                                                                                                              
