@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 from rudeler.constants import ROOT_DIR, PROJECT_NAME
 
-load_dotenv(os.path.join(ROOT_DIR, os.environ['RUDELER_ENV_FILE']))
+load_dotenv(os.environ['RUDELER_ENV_FILE'])
 
 
 class Config:
@@ -19,7 +19,3 @@ class Config:
     SPOND_BOT_ACCOUNT_ID = os.environ['SPOND_BOT_ACCOUNT_ID']
     SPOND_GROUP_ID = os.environ['SPOND_GROUP_ID']
     SPOND_SUB_GROUP_ID = os.environ['SPOND_SUB_GROUP_ID']
-
-
-if __name__ == '__main__':
-    print(Config.SPOND_PASSWORD)
