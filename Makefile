@@ -12,19 +12,28 @@ release: test deploy
 package:
 	./resources/scripts/make_cloud_functions_archive.sh $(environment)
 
-deploy: package
+deploy-init:
+	./resources/scripts/make_deploy_init.sh	$(environment)
+
+deploy-plan: package deploy-init
+	./resources/scripts/make_deploy_plan.sh $(environment)
+
+deploy: package deploy-init
 	./resources/scripts/make_deploy.sh $(environment)
 
 test:
-	RUDELER_ENV_FILE=.env.integrationtest $(BIN)/coverage run --source=src -m pytest tests/unit tests/integration
-	$(BIN)/coverage report
+	./resources/scripts/make_tests.sh
+	make coverage
 
-unittest:
-	$(BIN)/coverage run --source=src -m pytest tests/unit
-	$(BIN)/coverage report
+unit-test:
+	./resources/scripts/make_unit_tests.sh
+	make coverage
 
-integrationtest:
-	RUDELER_ENV_FILE=.env.integrationtest $(BIN)/coverage run --source=src -m pytest tests/integration
+integration-test:
+	./resources/scripts/make_integration_tests.sh
+	make coverage
+
+coverage:
 	$(BIN)/coverage report
 
 coverage-html:

@@ -1,5 +1,7 @@
 pytest~=7.2.0
 pytest-asyncio~=0.20.2
 pytest-mock~=3.10.0
+python-dotenv~=0.21.0
 coverage~=6.5.0
 jsonpath-rw-ext~=1.2.2
+functions-framework~=3.0.0

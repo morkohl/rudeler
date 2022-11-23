@@ -1,11 +1,11 @@
 from datetime import datetime
 
 from rudeler.asvz import ASVZScraper
-from rudeler.config import Config
 
 import pytest
 
 from tests.helpers.utils import json_matcher_first_item, is_valid_uri
+from tests.integration.config import Config
 
 
 def test_asvz_login_success():

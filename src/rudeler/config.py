@@ -1,11 +1,7 @@
 import json
 import os
 
-from dotenv import load_dotenv
-
 from rudeler.constants import ROOT_DIR, PROJECT_NAME
-
-load_dotenv(os.environ['RUDELER_ENV_FILE'])
 
 
 class Config:

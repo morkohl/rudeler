@@ -3,7 +3,6 @@ import random
 
 from spond.spond import Spond
 
-from rudeler.config import Config
 from rudeler.spond_client import SpondClient, SPOND_DATETIME_FORMAT
 
 import pytest
@@ -11,6 +10,7 @@ import pytest_asyncio
 
 from tests.helpers.spond import create_event_data, delete_all_events
 from tests.helpers.utils import json_matcher, json_matcher_first_item
+from tests.integration.config import Config
 
 
 @pytest.fixture(scope='function')

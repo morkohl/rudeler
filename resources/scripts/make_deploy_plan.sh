@@ -14,4 +14,4 @@ cd terraform
 
 info "Deploying terraform for environment ${ENVIRONMENT}"
 
-terraform apply -var-file="configurations/rudeler_${ENVIRONMENT}.tfvars" -auto-approve
+terraform plan -var-file="configurations/rudeler_${ENVIRONMENT}.tfvars"

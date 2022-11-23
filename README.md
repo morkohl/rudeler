@@ -17,7 +17,6 @@ git clone git@github.com:morkohl/rudeler.git
 make venv
 ```
 
-
 ### Testing
 
 > **In order to run integration tests you need a `.env.integrationtest` file.**
@@ -27,19 +26,19 @@ make venv
 #### Unit Tests
 
 ```sh
-make unittest
+make unit-test
 ```
 
 #### Integration Tests
 
 ```sh
-make integrationtest
+make integration-test
 ```
 
 #### All Tests
 
 ```sh
-make test 
+make test
 ```
 
 #### Coverage Report

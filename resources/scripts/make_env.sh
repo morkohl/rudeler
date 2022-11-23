@@ -2,12 +2,7 @@
 
 set -e
 
-GREEN="\033[0;32m"
-NC="\033[0;0m"
-
-function info() {
-  echo -e "\n${GREEN}#### ${1}... #####${NC}\n"
-}
+source $(dirname $0)/utils.sh
 
 info "Removing old environment"
 
