@@ -1,5 +1,10 @@
+import asyncio
+
 from rudeler.asvz import ASVZScraper
+from rudeler.config import Config
 from rudeler.spond_client import SpondClient
+
+from spond.spond import Spond
 
 
 class Rudeler:
@@ -31,3 +36,31 @@ class Rudeler:
                 print(f'can not publish event {event_identifier} to spond because it is already published')
 
 
+async def run_rudeler_async(request):
+    asvz_scraper = ASVZScraper(
+        username=Config.ASVZ_USERNAME,
+        password=Config.ASVZ_PASSWORD
+    )
+
+    spond_client = SpondClient(
+        spond=Spond(
+            username=Config.SPOND_USERNAME,
+            password=Config.SPOND_PASSWORD
+        ),
+        spond_client_account_id=Config.SPOND_BOT_ACCOUNT_ID,
+        spond_group_id=Config.SPOND_GROUP_ID,
+        spond_sub_group_id=Config.SPOND_SUB_GROUP_ID
+    )
+
+    rudeler = Rudeler(
+        asvz_scraper=asvz_scraper,
+        spond_client=spond_client
+    )
+
+    await rudeler.run(Config.RUDELER_SEARCH_CONFIGURATION)
+
+
+def run_rudeler(request):
+    asyncio.run(run_rudeler_async(request))
+
+    return 'success'
