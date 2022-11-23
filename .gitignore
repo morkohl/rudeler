@@ -254,7 +254,7 @@ cython_debug/
 
 ### Terraform ###
 # Local .terraform directories
-**/.terraform/*
+**/.terraform**
 
 # .tfstate files
 *.tfstate
@@ -302,3 +302,5 @@ pip-selfcheck.json
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all,python,virtualenv,terraform
 
+# Custom .gitignore adjustments
+rudeler.zip
