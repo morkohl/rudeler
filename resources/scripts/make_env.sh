@@ -11,7 +11,7 @@ function info() {
 
 info "Removing old environment"
 
-rm -rf venv
+[ -d venv ] && rm -rf venv
 
 info "Creating virtual environment"
 
