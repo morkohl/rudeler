@@ -17,7 +17,7 @@ info "Creating virtual environment"
 
 python3 -m venv venv
 
-chmod +x venv/bin/*
+info "Activating virtual environment"
 
 source venv/bin/activate
 
