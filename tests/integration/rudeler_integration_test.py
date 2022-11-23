@@ -1,9 +1,9 @@
 import pytest
 import pytest_asyncio
 
+from main import Rudeler
 from rudeler.asvz import ASVZScraper
 from rudeler.config import Config
-from rudeler.rudeler import Rudeler
 from rudeler.spond_client import SpondClient
 
 from spond.spond import Spond
