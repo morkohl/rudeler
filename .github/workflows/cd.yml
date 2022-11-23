@@ -1,0 +1,69 @@
+name: Rudeler CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - uses: actions/setup-python@v4
+      name: Setup Python
+      with:
+        python-version: 3.11
+
+    - name: Setup venv
+      run: make venv
+
+    - id: auth
+      uses: google-github-actions/auth@v1
+      with:
+        credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
+
+    - name: Run Test
+      run: make test
+
+    - name: Make coverage report
+      run: make coverage-html
+
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-coverage-html-report
+        path: htmlcov
+        retention-days: 7
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    needs: test
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - id: auth
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Deploy to Development Environment
+        run: make deploy environment=dev
+
