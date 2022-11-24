@@ -19,7 +19,6 @@ mkdir -p ${ZIP_DIRECTORY}
 
 cp -r src/* ${ZIP_DIRECTORY}
 cp requirements.txt ${ZIP_DIRECTORY}
-cp .env.$1 ${ZIP_DIRECTORY}
 
 (cd ${ZIP_DIRECTORY}; zip -r ../${ZIP_FILE} .)
 
