@@ -4,15 +4,14 @@ from unittest.mock import MagicMock
 import pytest
 from pytest_mock import mocker
 from tests.helpers.asvz import expected_events_all, expected_events_ghg
+from get_project_root import root_path
 
 from rudeler.asvz import ASVZScraper, ASVZ_URL
-from rudeler.constants import ROOT_DIR
-
 
 
 @pytest.fixture(scope='function')
 def static_events_html():
-    with open(os.path.join(os.path.join(ROOT_DIR, 'resources', 'test'), 'events.html')) as html_file:
+    with open(os.path.join(root_path(), 'resources', 'test', 'events.html')) as html_file:
         return html_file.read()
 
 

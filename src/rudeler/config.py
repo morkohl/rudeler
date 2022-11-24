@@ -1,13 +1,8 @@
 import json
 import os
 
-from rudeler.constants import ROOT_DIR, PROJECT_NAME
-
 
 class Config:
-    PROJECT_NAME = PROJECT_NAME
-    ROOT_DIR = ROOT_DIR
-
     RUDELER_SEARCH_CONFIGURATION = json.loads(os.environ['RUDELER_SEARCH_CONFIGURATION'])
 
     ASVZ_USERNAME = os.environ['ASVZ_USERNAME']
