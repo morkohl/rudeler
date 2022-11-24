@@ -8,14 +8,6 @@ locals {
   spond_password_secret_id = "${var.environment}-spond-password"
 }
 
-resource "google_project_service" "enable_cloud_build_api" {
-  service = "cloudbuild.googleapis.com"
-}
-
-resource "google_project_service" "enable_cloud_functions_api" {
-  service = "cloudfunctions.googleapis.com"
-}
-
 resource "google_storage_bucket" "rudeler_sources_bucket" {
   name     = "${local.deployment_name}-cloud-function-sources"
   location = var.region
@@ -96,9 +88,6 @@ resource "google_cloudfunctions_function" "rudeler" {
   }
 
   depends_on = [
-    google_project_service.enable_cloud_build_api,
-    google_project_service.enable_cloud_functions_api,
-
     google_secret_manager_secret_iam_member.rudeler_access_asvz_username,
     google_secret_manager_secret_iam_member.rudeler_access_asvz_password,
     google_secret_manager_secret_iam_member.rudeler_access_spond_username,

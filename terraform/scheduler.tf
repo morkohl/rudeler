@@ -1,7 +1,3 @@
-resource "google_project_service" "enable_cloud_scheduler_api" {
-  service = "cloudscheduler.googleapis.com"
-}
-
 resource "google_service_account" "scheduler_service_account" {
   account_id   = "${local.deployment_name}-scheduler-sa"
   display_name = "Service account for scheduling cloud function ${local.deployment_name}"
@@ -22,10 +18,6 @@ resource "google_cloud_scheduler_job" "schedule_rudeler" {
       service_account_email = google_service_account.scheduler_service_account.email
     }
   }
-
-  depends_on = [
-    google_project_service.enable_cloud_scheduler_api,
-  ]
 }
 
 resource "google_cloudfunctions_function_iam_member" "invoker" {
