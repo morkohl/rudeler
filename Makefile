@@ -4,16 +4,19 @@ BIN = $(VENV)/bin
 
 .PHONY: venv
 
+# Targets for service setup
 venv:
 	./resources/scripts/make_env.sh
 
+# Targets for service release
 release: test deploy
 
+# Targets for rudeler deployment
 package:
-	./resources/scripts/make_cloud_functions_archive.sh $(environment)
+	./resources/scripts/make_cloud_functions_archive.sh
 
 deploy-init:
-	./resources/scripts/make_deploy_init.sh	$(environment)
+	./resources/scripts/make_deploy_init.sh $(environment)
 
 deploy-plan: package deploy-init
 	./resources/scripts/make_deploy_plan.sh $(environment)
@@ -21,6 +24,7 @@ deploy-plan: package deploy-init
 deploy: package deploy-init
 	./resources/scripts/make_deploy.sh $(environment)
 
+# Targets for testing and coverage
 test:
 	./resources/scripts/make_tests.sh
 	make coverage
