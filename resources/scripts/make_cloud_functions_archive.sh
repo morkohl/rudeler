@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
-
 source $(dirname $0)/utils.sh
-
-if [[ -z ${1} ]]; then
-  error "Usage: <environment>"
-fi
 
 ZIP_DIRECTORY=temp
 ZIP_FILE=rudeler.zip
